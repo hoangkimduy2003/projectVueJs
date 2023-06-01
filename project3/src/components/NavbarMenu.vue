@@ -1,7 +1,7 @@
 <template>
     <div>
-        <router-link to="/" >OverView</router-link>
-        <router-link to="/transactions" >Transactions</router-link>
+        <router-link :to="{name: 'home-route'}" >OverView</router-link>
+        <router-link :to="{name: 'transactions-route'}" >Transactions</router-link>
         <router-link to="/">Budgets</router-link>
         <router-link to="/">Reports</router-link>
         <router-link to="/">Setting</router-link>

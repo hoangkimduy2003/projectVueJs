@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <navbar-menu></navbar-menu>
   <router-view></router-view>
 </template>
@@ -9,16 +8,15 @@ import NavbarMenu from "./components/NavbarMenu.vue";
 export default {
   name: "App",
   components: { NavbarMenu },
+  created(){
+    
+  },
+  mounted() {
+    
+  },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

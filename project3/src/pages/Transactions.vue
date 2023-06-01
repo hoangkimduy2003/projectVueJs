@@ -1,41 +1,43 @@
 <template>
-    <div>
-        Đây là transactions ...
-        <div class="item" v-for="transaction in transactions" :key="transaction.id">
-            <router-link :to="`/transaction/${transaction.id}`">{{ transaction.name }}</router-link>
-        </div>
+  <div>
+    Đây là transactions ...
+    <div v-if="transactions.length">
+      <table>
+      <tr v-for="transaction in transactions" :key="transaction.id">
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.name }}</td>
+        <td>{{ transaction.price }}</td>
+        <td>
+          <button>
+            <router-link
+              :to="{
+                name: 'transaction-detail-route',
+                params: { id: transaction.id },
+              }"
+              >Chi tiết</router-link
+            >
+          </button>
+        </td>
+      </tr>
+    </table>
     </div>
+    <div v-else>Loading transactions ... </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "TransactionScreen",
-        data() {
-            return {
-                transactions:[
-                    {
-                        id: 1,
-                        name: "Transaction 1"
-                    },
-                    {
-                        id: 2,
-                        name: "Transaction 2"
-                    },
-                    {
-                        id: 3,
-                        name: "Transaction 3"
-                    },
-                    {
-                        id: 4,
-                        name: "Transaction 4"
-                    }
-                ]
-            }
-        },
-
-    }
+export default {
+  name: "TransactionScreen",
+  data() {
+    return {
+      transactions: [],
+    };
+  },
+  created() {
+    fetch("http://localhost:3000/transactions").then((response) => response.json().then(data => this.transactions = data) )
+  },
+};
 </script>
 
 <style  scoped>
-
 </style>
