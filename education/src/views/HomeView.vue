@@ -12,8 +12,7 @@
       <tr v-for="(product,index) in listProduct" :key="index">
         <td>{{ index + 1 }}</td>
         <td>{{ product.name }}</td>
-        <td> <span v-for="(img,index) in product.images" :key="index">{{ img }}</span></td>
-        <td>{{ index }}</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -32,11 +31,15 @@
     },
     methods: {
       getAll(){
-        this.$request.get('http://localhost:8080/product').then(res =>{
+        this.$request.get('http://localhost:8080/pro').then(res =>{
           this.listProduct = res.data;
           console.log(this.listProduct);
         }) 
-      }     
+      },
+      getImageUrl(image) {
+      const base = btoa(String.fromCharCode(...image));
+      const url = ''
+    },  
     },
   }
 </script>

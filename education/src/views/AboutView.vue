@@ -42,12 +42,12 @@ export default {
     },
     onSubmit() {
       const formData = new FormData();
-      formData.append("Name", this.name);
+      formData.append("name", this.name);
       this.files.forEach((file) => {
         formData.append("files", file);
       });
 
-      this.$request.post('http://localhost:8080/product',formData).then(res => {
+      this.$request.post('http://localhost:8080/pro',formData).then(res => {
         console.log(res.data);
       })
       

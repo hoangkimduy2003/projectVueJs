@@ -93,7 +93,7 @@ export default {
     validate() {
       let isValid = true;
       this.error = {
-        name: "",
+        name: "", 
         price: "",
         description: "",
       };
